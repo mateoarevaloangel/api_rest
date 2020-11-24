@@ -9,7 +9,7 @@ namespace api_rest.Entities
     public class Producto
     {
         [Key]
-        public string id { get; set; }
+        public int id { get; set; }
 
         public string nombre{get;set;}
 
