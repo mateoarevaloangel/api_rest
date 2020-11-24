@@ -31,7 +31,21 @@ namespace api_rest.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                Algo = 1
+            })
+            .ToArray();
+        }
+        [HttpGet("{id}")]
+        public IEnumerable<WeatherForecast> Get(int id)
+        {
+            var rng = new Random();
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                Algo = id
             })
             .ToArray();
         }
